@@ -1,5 +1,6 @@
-import { Header } from "../components/share/Header/Header";
+import Header from "../components/share/Header/Header";
 import { Footer } from "../components/share/Footer/Footer";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function RootLayout({
   children,
