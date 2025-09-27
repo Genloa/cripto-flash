@@ -1,3 +1,9 @@
+import ValorMercado from "@/components/mercado/ValorMercado/ValorMercado";
+
 export default function Mercado() {
-  return <h1>Mercado</h1>;
+  return (
+    <div>
+      <ValorMercado />
+    </div>
+  );
 }
