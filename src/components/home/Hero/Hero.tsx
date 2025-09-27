@@ -1,13 +1,13 @@
-export function HeroSection() {
+export function Hero() {
   return (
     <section className="min-vh-100 bg-light">
       {/* Hero Content */}
       <div className="container py-4">
         <div className="row align-items-center g-5">
           {/* Left Content */}
-          <div className="col-lg-5">
+          <div className="col-lg-6">
             <h1 className="display-6 fw-bold">
-              Tu acceso al mundo{" "}
+              Tu acceso al mundo <br />
               <span className="display-2 fw-bold" style={{ color: "#35b8af" }}>
                 Cripto en Latinoamérica
               </span>
@@ -28,14 +28,14 @@ export function HeroSection() {
             </div>
             <div className="d-flex gap-3 mt-2 mb-2">
               <button className="btn btn-dark btn-lg px-4 mt-4 d-flex align-items-center gap-3 mb-3">
-                <i className="fa-brands fa-google-play display-6"></i>
+                <i className="fa-brands fa-google-play display-5"></i>
                 <div className="text-start">
                   <div>DISPONIBLE EN</div>
                   <div className="fs-5 fw-bold">Google Play</div>
                 </div>
               </button>
               <button className="btn btn-dark btn-lg px-4 mt-4 d-flex align-items-center gap-3 mb-3">
-                <i className="fa-brands fa-apple display-6"></i>
+                <i className="fa-brands fa-apple display-5"></i>
                 <div className="text-start">
                   <div>CONSIGELO EN</div>
                   <div className="fs-5 fw-bold">App Store</div>
@@ -47,7 +47,7 @@ export function HeroSection() {
           </div>
 
           {/* Right Content - Mobile App Mockup */}
-          <div className="col-lg-7 position-relative">
+          <div className="col-lg-6 position-relative">
             <div
               className="mx-auto position-relative"
               style={{ width: "320px", height: "600px" }}

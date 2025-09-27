@@ -1,8 +1,10 @@
-import { HeroSection } from "@/components/home/Hero/Hero";
+import { Hero } from "@/components/home/Hero/Hero";
+import RecorridoDigital from "@/components/home/RecorridoServicios/RecorridoServicios";
 export default function Home() {
   return (
     <div>
-      <HeroSection />
+      <Hero />
+      <RecorridoDigital />
     </div>
   );
 }
