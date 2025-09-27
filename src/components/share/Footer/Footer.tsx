@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer
-      className="text-white pt-4  border-5 border-top border-warning"
+      className="text-white pt-4  border-5 border-top border-warning mt-5"
       style={{ backgroundColor: "#143b62" }}
     >
       <div className="container">

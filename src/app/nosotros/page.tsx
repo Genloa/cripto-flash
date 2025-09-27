@@ -1,3 +1,11 @@
+import Somos from "@/components/nosotros/Somos/Somos";
+import Valores from "@/components/nosotros/Valores/Valores";
+
 export default function Nosotros() {
-  return <h1>Nosotros</h1>;
+  return (
+    <div>
+      <Somos />
+      <Valores />
+    </div>
+  );
 }
