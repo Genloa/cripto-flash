@@ -1,12 +1,17 @@
+import Image from "next/image";
+import imagen from "../../../../asset/img/Zelle.png";
+import imagen2 from "../../../../asset/img/PayPal.png";
+import imagen3 from "../../../../asset/img/Zinli.png";
+import imagen4 from "../../../../asset/img/nequi.png";
+import imagen5 from "../../../../asset/img/Yape.png";
+
 export default function CarruselPagos() {
   const logos = [
-    { icon: " ", url: "https://www.zellepay.com" },
-    { icon: " ", url: "https://www.paypal.com" },
-    { icon: " ", url: "https://www.zinli.com" },
-    { icon: " ", url: "https://www.nequi.com.co" },
-    { icon: " ", url: "https://www.yape.com.pe" },
-    { icon: " ", url: "https://www.bcb.gov.br" },
-    { icon: " ", url: "https://www.mercadopago.com" },
+    { icon: imagen, url: "https://www.zellepay.com" },
+    { icon: imagen2, url: "https://www.paypal.com" },
+    { icon: imagen3, url: "https://www.zinli.com" },
+    { icon: imagen4, url: "https://www.nequi.com.co" },
+    { icon: imagen5, url: "https://www.yape.com.pe" },
   ];
 
   return (
@@ -24,7 +29,18 @@ export default function CarruselPagos() {
             {[...logos, ...logos].map((logo, idx) => (
               <div key={idx} className="logo-wrapper">
                 <a href={logo.url} target="_blank" rel="noopener noreferrer">
-                  <img src={logo.icon} alt="logo" />
+                  <Image
+                    src={logo.icon}
+                    alt={`Logo ${idx}`}
+                    width={200}
+                    height={50}
+                    style={{
+                      objectFit: "contain",
+                      filter: "grayscale(100%)",
+                      transition: "filter 0.3s ease",
+                      display: "block",
+                    }}
+                  />
                 </a>
               </div>
             ))}
@@ -38,21 +54,6 @@ export default function CarruselPagos() {
           display: flex;
         }
 
-        .logo-wrapper {
-          flex: 0 0 auto;
-          width: 120px;
-          height: 70px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .logo-wrapper img {
-          max-width: 100%;
-          max-height: 60px;
-          object-fit: contain;
-        }
-
         @keyframes scroll {
           0% {
             transform: translateX(0);
@@ -64,11 +65,8 @@ export default function CarruselPagos() {
 
         @media (max-width: 768px) {
           .logo-wrapper {
-            width: 80px;
+            width: 120px;
             height: 40px;
-          }
-          .logo-wrapper img {
-            max-height: 50px;
           }
         }
       `}</style>

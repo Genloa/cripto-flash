@@ -1,19 +1,31 @@
+"use client";
+
 import Image from "next/image";
 import imagen from "../../../asset/img/imgNosotros.png";
+
 export default function Somos() {
   return (
     <section className="container py-5" id="quienesSomos">
-      <div className="row align-items-center">
-        <div
-          className="bg-warning position-absolute z-1 top-0 end-0 rounded-circle d-flex justify-content-center align-items-center shadow"
-          style={{
-            width: "417px",
-            height: "417px",
-            transform: "translate(-50%, 32%)",
-          }}
-        ></div>
-        <div className="col-md-6">
-          <h2 className="fw-bold mb-4 display-4" style={{ color: "#35b8af" }}>
+      <div className="row align-items-center position-relative">
+        {/* Círculo decorativo */}
+        <div className="circle-decor bg-warning position-absolute z-1 top-0 end-0 rounded-circle d-flex justify-content-center align-items-center shadow"></div>
+
+        {/* Imagen primero en móviles */}
+        <div className="col-12 col-md-6 text-center mb-4 mb-md-0 z-3 order-md-2">
+          <Image
+            src={imagen}
+            alt="Nosotros"
+            className="img-fluid rounded"
+            width={500}
+            height={350}
+            style={{ width: "100%", height: "auto" }}
+            priority
+          />
+        </div>
+
+        {/* Texto */}
+        <div className="col-12 col-md-6 order-md-1">
+          <h2 className="fw-bold mb-4 display-5 " style={{ color: "#35b8af" }}>
             Nosotros
           </h2>
           <p className="text-muted fs-5">
@@ -35,19 +47,31 @@ export default function Somos() {
             tu dinero merece libertad.
           </p>
         </div>
-
-        <div className="col-md-6 text-center z-3">
-          <Image
-            src={imagen}
-            alt="Nosotros"
-            className="img-fluid rounded"
-            width={500}
-            height={350}
-            style={{ width: "100%", height: "auto" }}
-            priority
-          />
-        </div>
       </div>
+
+      <style jsx>{`
+        .circle-decor {
+          width: 417px;
+          height: 417px;
+          transform: translate(-28%, -3%);
+        }
+
+        @media (max-width: 768px) {
+          .circle-decor {
+            width: 227px;
+            height: 227px;
+            transform: translate(-41%, -4%);
+          }
+
+          h2 {
+            font-size: 2rem !important;
+          }
+
+          p {
+            font-size: 1rem !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

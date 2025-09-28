@@ -39,9 +39,7 @@ export default function TablaMonedas() {
       console.error("Error fetching monedas:", error);
     }
   };
-  // Pagination logic
 
-  // Filtrar monedas por nombre
   const monedasFiltradas = moneda.filter((m) =>
     m.name.toLowerCase().includes(search.toLowerCase())
   );
@@ -60,43 +58,57 @@ export default function TablaMonedas() {
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
-      <table className="table">
-        <thead className="">
-          <tr className="table-warning">
-            <th scope="col">#</th>
-            <th scope="col">Moneda</th>
-            <th scope="col">Precio Actual</th>
-            <th scope="col">Capital Mercado</th>
-            <th scope="col">Rango Mercado</th>
-            <th scope="col">% Variacion Precio</th>
-            <th scope="col">última Actualización</th>
-          </tr>
-        </thead>
-        <tbody>
-          {monedasPagina.map((m, idx) => (
-            <tr key={m.id}>
-              <th scope="row">{offset + idx + 1}</th>
-              <td>
-                <Image
-                  src={m.image}
-                  alt={m.name}
-                  width={20}
-                  height={20}
-                  style={{ marginRight: 8 }}
-                />
-                {m.name}
-              </td>
-              <td>${m.current_price.toLocaleString()}</td>
-              <td>${m.market_cap.toLocaleString()}</td>
-              <td>{m.market_cap_rank}</td>
-              <td>{m.price_change_percentage_24h?.toFixed(2)}%</td>
-              <td>{new Date(m.last_updated).toLocaleString()}</td>
+
+      <div className="table-responsive">
+        <table className="table table-sm">
+          <thead>
+            <tr className="table-warning text-nowrap">
+              <th scope="col">#</th>
+              <th scope="col">Moneda</th>
+              <th scope="col">Precio</th>
+              <th scope="col" className="d-none d-md-table-cell">
+                Capital
+              </th>
+              <th scope="col" className="d-none d-md-table-cell">
+                Rango
+              </th>
+              <th scope="col">% 24h</th>
+              <th scope="col" className="d-none d-md-table-cell">
+                Actualización
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {monedasPagina.map((m, idx) => (
+              <tr key={m.id}>
+                <th scope="row">{offset + idx + 1}</th>
+                <td className="text-nowrap">
+                  <Image
+                    src={m.image}
+                    alt={m.name}
+                    width={20}
+                    height={20}
+                    style={{ marginRight: 8 }}
+                  />
+                  {m.name}
+                </td>
+                <td>${m.current_price.toLocaleString()}</td>
+                <td className="d-none d-md-table-cell">
+                  ${m.market_cap.toLocaleString()}
+                </td>
+                <td className="d-none d-md-table-cell">{m.market_cap_rank}</td>
+                <td>{m.price_change_percentage_24h?.toFixed(2)}%</td>
+                <td className="d-none d-md-table-cell">
+                  {new Date(m.last_updated).toLocaleString()}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
       {pageCount > 1 && (
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center mt-3">
           <ReactPaginate
             previousLabel={"Anterior"}
             nextLabel={"Siguiente"}

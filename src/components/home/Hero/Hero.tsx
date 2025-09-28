@@ -1,11 +1,10 @@
+"use client";
 export function Hero() {
   return (
     <section className="min-vh-100 bg-light">
-      {/* Hero Content */}
       <div className="container py-4">
         <div className="row align-items-center g-5">
-          {/* Left Content */}
-          <div className="col-lg-6">
+          <div className="col-lg-5">
             <h1 className="display-6 fw-bold">
               Tu acceso al mundo <br />
               <span className="display-2 fw-bold" style={{ color: "#35b8af" }}>
@@ -26,35 +25,46 @@ export function Hero() {
                 <div className="text-muted">Operaciones completadas</div>
               </div>
             </div>
-            <div className="d-flex gap-3 mt-2 mb-2">
-              <button className="btn btn-dark btn-lg px-4 mt-4 d-flex align-items-center gap-3 mb-3">
-                <i className="fa-brands fa-google-play display-5"></i>
-                <div className="text-start">
-                  <div>DISPONIBLE EN</div>
-                  <div className="fs-5 fw-bold">Google Play</div>
-                </div>
-              </button>
-              <button className="btn btn-dark btn-lg px-4 mt-4 d-flex align-items-center gap-3 mb-3">
-                <i className="fa-brands fa-apple display-5"></i>
-                <div className="text-start">
-                  <div>CONSIGELO EN</div>
-                  <div className="fs-5 fw-bold">App Store</div>
-                </div>
-              </button>
+            <div className="row row-cols-1 row-cols-md-2 g-3 mt-4">
+              <div className="col">
+                <button className="btn btn-dark w-100 px-4 d-flex align-items-center gap-3">
+                  <i className="fa-brands fa-google-play display-5"></i>
+                  <div className="text-start">
+                    <div>DISPONIBLE EN</div>
+                    <div className="fs-5 fw-bold">Google Play</div>
+                  </div>
+                </button>
+              </div>
+              <div className="col">
+                <button className="btn btn-dark w-100 px-4 d-flex align-items-center gap-3">
+                  <i className="fa-brands fa-apple display-5"></i>
+                  <div className="text-start">
+                    <div>CONSIGUELO EN</div>
+                    <div className="fs-5 fw-bold">App Store</div>
+                  </div>
+                </button>
+              </div>
             </div>
-
-            {/* Stats */}
           </div>
 
-          {/* Right Content - Mobile App Mockup */}
-          <div className="col-lg-6 position-relative">
+          <div className="col-lg-7 position-relative overflow-hidden">
             <div
-              className="mx-auto position-relative"
-              style={{ width: "320px", height: "600px" }}
+              className="mx-auto position-relative w-100"
+              style={{ maxWidth: "320px", height: "600px" }}
             >
-              {/* Floating Elements debajo del card, con z-1 */}
+              <style jsx>{`
+                @media screen and (max-width: 768px) {
+                  .floating-icon {
+                    transform: translate(0, 0) !important;
+                    width: 36px !important;
+                    height: 36px !important;
+                  }
+                }
+              `}</style>
+
+              {/* Íconos flotantes */}
               <div
-                className="bg-warning position-absolute z-1 top-0 end-0 rounded-circle d-flex justify-content-center align-items-center shadow"
+                className="bg-warning position-absolute z-1 top-0 end-0 rounded-circle shadow"
                 style={{
                   width: "244px",
                   height: "244px",
@@ -63,7 +73,7 @@ export function Hero() {
               ></div>
 
               <div
-                className="position-absolute z-1 bottom-0 start-0  rounded-circle d-flex justify-content-center align-items-center shadow"
+                className="position-absolute z-1 bottom-0 start-0 rounded-circle shadow"
                 style={{
                   width: "179px",
                   height: "179px",
@@ -71,45 +81,47 @@ export function Hero() {
                   transform: "translate(-50%, -127%)",
                 }}
               ></div>
+
               <div
-                className=" bg-warning position-absolute z-1 bottom-0 start-0  rounded-circle d-flex justify-content-center align-items-center shadow"
+                className="bg-warning position-absolute z-1 bottom-0 start-0 rounded-circle d-flex justify-content-center align-items-center shadow floating-icon"
                 style={{
                   width: "45px",
                   height: "45px",
                   transform: "translate(-244%, -900%)",
                 }}
               >
-                {" "}
                 <i
                   className="fa-brands fa-bitcoin display-5"
                   style={{ color: "#143b62" }}
                 ></i>
               </div>
+
               <div
-                className=" bg-warning position-absolute z-1 bottom-0 start-0  rounded-circle d-flex justify-content-center align-items-center shadow"
+                className="bg-warning position-absolute z-1 bottom-0 start-0 rounded-circle d-flex justify-content-center align-items-center shadow floating-icon"
                 style={{
                   width: "45px",
                   height: "45px",
                   transform: "translate(-412%, -1013%)",
                 }}
               >
-                {" "}
                 <i className="fa-brands fa-viacoin fs-2"></i>
               </div>
+
               <div
-                className=" bg-warning position-absolute z-1 bottom-0 start-0  rounded-circle d-flex justify-content-center align-items-center shadow"
+                className="bg-warning position-absolute z-1 bottom-0 start-0 rounded-circle d-flex justify-content-center align-items-center shadow floating-icon"
                 style={{
                   width: "45px",
                   height: "45px",
                   transform: "translate(-363%, -692%)",
                 }}
               >
-                {" "}
                 <i className="fa-solid fa-dollar-sign display-6"></i>
               </div>
-              <div className=" bg-black rounded-5 p-2 shadow-lg z-3 position-relative">
+
+              {/* Mockup del celular */}
+              <div className="bg-black rounded-5 p-2 shadow-lg z-3 position-relative">
                 <div className="bg-white rounded-4 h-100 overflow-hidden p-4">
-                  {/* Status Bar */}
+                  {/* Barra de estado */}
                   <div className="d-flex justify-content-between text-muted small mb-3">
                     <span>9:41</span>
                     <div className="d-flex gap-1">
@@ -130,13 +142,13 @@ export function Hero() {
                         }}
                       ></div>
                       <div
-                        className=" bg-warning rounded"
+                        className="bg-warning rounded"
                         style={{ width: "24px", height: "8px" }}
                       ></div>
                     </div>
                   </div>
 
-                  {/* App Header */}
+                  {/* Encabezado de la app */}
                   <div className="d-flex justify-content-between align-items-center mb-4">
                     <div>
                       <h5 className="mb-1 fs-6">Bienvenido</h5>
@@ -145,7 +157,7 @@ export function Hero() {
                       </p>
                     </div>
                     <div
-                      className=" rounded-circle d-flex justify-content-center align-items-center"
+                      className="rounded-circle d-flex justify-content-center align-items-center"
                       style={{
                         width: "40px",
                         height: "40px",
@@ -154,7 +166,7 @@ export function Hero() {
                     ></div>
                   </div>
 
-                  {/* Progress Card */}
+                  {/* Tarjeta de progreso */}
                   <div
                     className="text-white rounded p-3 mb-4"
                     style={{ background: "#35b8af" }}
@@ -174,17 +186,15 @@ export function Hero() {
                         style={{ width: "75%" }}
                       ></div>
                     </div>
-                    <p className="small">6 de 8 operaciones realizada</p>
+                    <p className="small">6 de 8 operaciones realizadas</p>
                   </div>
 
-                  {/* Task List */}
+                  {/* Lista de tareas */}
                   <div className="mb-4">
-                    <div className="d-flex justify-content-between align-items-center mb-2">
-                      <h6 className="mb-0">Tareas del día</h6>
-                    </div>
+                    <h6 className="mb-2">Tareas del día</h6>
                     <div className="d-flex align-items-center gap-2 p-2 bg-light rounded mb-2">
                       <div
-                        className="rounded-circle d-flex justify-content-center align-items-center"
+                        className="rounded-circle"
                         style={{
                           width: "16px",
                           height: "16px",
@@ -207,11 +217,11 @@ export function Hero() {
                         className="border border-secondary rounded-circle"
                         style={{ width: "16px", height: "16px" }}
                       ></div>
-                      <span className="small">Incrementar Ventas</span>
+                      <span className="small">Incrementar ventas</span>
                     </div>
                   </div>
 
-                  {/* Bottom Stats */}
+                  {/* Estadísticas inferiores */}
                   <div className="row g-2">
                     <div className="col-6">
                       <div className="border rounded text-center p-2">
@@ -225,7 +235,7 @@ export function Hero() {
                       <div className="border rounded text-center p-2">
                         <div className="fw-bold">89%</div>
                         <div className="text-muted small">
-                          Eficiencia en tus transaccione
+                          Eficiencia en tus transacciones
                         </div>
                       </div>
                     </div>
